@@ -1,0 +1,35 @@
+<?php
+  $dsn = 'sql5.freemysqlhosting.net';
+  $user = 'sql5441530';
+  $password = 'MUCkJUKs9j';
+  $database = 'sql5441530';
+try {
+    $db = new PDO ($dsn, $user, $password, $database);
+}
+catch (PDOException $e) {
+    $error_message = $e -> getMessage();
+    print($error_message);
+    exit ();
+}
+
+    /*
+    host: 'sql5.freemysqlhosting.net',
+    user: 'sql5441530',
+    password: 'MUCkJUKs9j',
+    database: 'sql5441530'
+*/
+$string = $string['statuses'];
+for ($i=0;$i<10; $i++){
+    $items=$string[$i];
+    $data=$items ['id'] ['name'] ['box_art_url'];
+    
+    
+    
+    $query = "INSERT INTO mySampleTable
+    (id, name, box_art_url)
+    VALUES 
+    ('$data')";
+$db -> exec($query);
+
+}
+?>
